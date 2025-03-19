@@ -99,23 +99,42 @@ public class Main {
         diagnosesDF.createOrReplaceTempView("diagnoses");
 
         //print line count
-        System.out.println(">> [patientsRDD: " + filteredPatientsRDD.count() + "]");
-        System.out.println(">> [prescriptionsRDD: " + prescriptionsRDD.count() + "]");
-        System.out.println(">> [diagnosesRDD: " + diagnosesRDD.count() + "]");
+//        System.out.println(">> [patientsRDD: " + filteredPatientsRDD.count() + "]");
+//        System.out.println(">> [prescriptionsRDD: " + prescriptionsRDD.count() + "]");
+//        System.out.println(">> [diagnosesRDD: " + diagnosesRDD.count() + "]");
 
         return new Tuple3<>(filteredPatientsRDD, prescriptionsRDD, diagnosesRDD);
     }
 
 
     public static void Q2(SparkSession spark) {
-        var q21 = 0;
+        // Query 1: Find the number of patients that were born in 1999
+        Dataset<Row> q21Result = spark.sql(
+                "SELECT COUNT(*) AS count FROM patients WHERE dateOfBirth LIKE '1999-%'"
+        );
+        long q21 = q21Result.first().getLong(0);
         System.out.println(">> [q21: " + q21 + "]");
 
-        var q22 = 0;
+        // Query 2: Find the date in 2024 where the number of diagnoses reached its maximum value
+        Dataset<Row> q22Result = spark.sql(
+                "SELECT date, COUNT(*) AS count FROM diagnoses WHERE date LIKE '2024-%' GROUP BY date ORDER BY count DESC LIMIT 1"
+        );
+        String q22 = q22Result.first().getString(0);
         System.out.println(">> [q22: " + q22 + "]");
 
-        var q23 = 0;
+        // Query 3: Find the date in 2024 where the prescription with the maximum number of medicines was administered
+        Dataset<Row> q23Result = spark.sql(
+                "SELECT d.date, COUNT(p.prescriptionId) AS count " +
+                        "FROM diagnoses d " +
+                        "JOIN prescriptions p ON d.prescriptionId = p.prescriptionId " +
+                        "WHERE d.date LIKE '2024-%' " +
+                        "GROUP BY d.date " +
+                        "ORDER BY count DESC " +
+                        "LIMIT 1"
+        );
+        String q23 = q23Result.first().getString(0);
         System.out.println(">> [q23: " + q23 + "]");
+
     }
 
     public static void Q3(Tuple3<JavaRDD<String>, JavaRDD<String>, JavaRDD<String>> rdds) {
