@@ -11,6 +11,10 @@ import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.types.DataTypes;
 import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
+import org.apache.spark.api.java.JavaPairRDD;
+import scala.Tuple2;
+import java.util.Comparator;
+import java.io.Serializable;
 
 public class Main {
     public static void main(String[] args) {
@@ -124,13 +128,16 @@ public class Main {
 
         // Query 3: Find the date in 2024 where the prescription with the maximum number of medicines was administered
         Dataset<Row> q23Result = spark.sql(
-                "SELECT d.date, COUNT(p.prescriptionId) AS count " +
-                        "FROM diagnoses d " +
-                        "JOIN prescriptions p ON d.prescriptionId = p.prescriptionId " +
-                        "WHERE d.date LIKE '2024-%' " +
-                        "GROUP BY d.date " +
-                        "ORDER BY count DESC " +
-                        "LIMIT 1"
+        "WITH prescription_counts AS (" +
+                "SELECT p.prescriptionId, COUNT(*) AS count " +
+                "FROM prescriptions AS p " +
+                "GROUP BY p.prescriptionId ) " +
+                "SELECT d.date " +
+                "FROM diagnoses d " +
+                "JOIN prescription_counts AS pc ON d.prescriptionId = pc.prescriptionId " +
+                "WHERE d.date LIKE '2024-%' " +
+                "ORDER BY count DESC " +
+                "LIMIT 1"
         );
         String q23 = q23Result.first().getString(0);
         System.out.println(">> [q23: " + q23 + "]");
@@ -138,13 +145,48 @@ public class Main {
     }
 
     public static void Q3(Tuple3<JavaRDD<String>, JavaRDD<String>, JavaRDD<String>> rdds) {
-        var q31 = 0;
+
+        // Query 1: Find the number of patients that were born in 1999
+        long q31 = rdds._1().filter(line -> {
+            String[] parts = line.split(",");
+            return parts[3].startsWith("1999");
+        }).count();
         System.out.println(">> [q31: " + q31 + "]");
 
-        var q32 = 0;
+        // Query 2: Find the date in 2024 where the number of diagnoses reached its maximum value
+        JavaPairRDD<String, Integer> diagnosesByDate = rdds._3()
+                .filter(line -> {
+                    String[] parts = line.split(",");
+                    return parts[2].startsWith("2024");
+                })
+                .mapToPair(line -> {
+                    String date = line.split(",")[2];
+                    return new Tuple2<>(date, 1);
+                })
+                .reduceByKey((a, b) -> a + b);
+        Tuple2<String, Integer> q32Tuple = diagnosesByDate.max((Serializable & Comparator<Tuple2<String, Integer>>)
+                (t1, t2) -> Integer.compare(t1._2(), t2._2()));
+        String q32 = q32Tuple._1();
         System.out.println(">> [q32: " + q32 + "]");
 
-        var q33 = 0;
+        // Query 3: Find the date in 2024 where the prescription with the maximum number of medicines was administered
+        JavaPairRDD<Integer, Integer> prescriptionCounts = rdds._2()
+                .mapToPair(line -> {
+                    String[] part = line.split(",");
+                    int prescriptionId = Integer.parseInt(part[0]);
+                    return new Tuple2<>(prescriptionId, 1);
+                })
+                .reduceByKey((a, b) -> a + b);
+        Tuple2<Integer, Integer> maxPrescription = prescriptionCounts.max((Serializable & Comparator<Tuple2<Integer, Integer>>)
+                (t1, t2) -> Integer.compare(t1._2(), t2._2()));
+        int maxPrescriptionId = maxPrescription._1();
+        String q33 = rdds._3()
+                        .filter(line -> {
+                            String[] parts = line.split(",");
+                            return parts[2].startsWith("2024") && Integer.parseInt(parts[4]) == maxPrescriptionId;
+                        })
+                        .map(line -> line.split(",")[2])
+                        .first();
         System.out.println(">> [q33: " + q33 + "]");
     }
 
