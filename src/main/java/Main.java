@@ -13,8 +13,6 @@ import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
 import org.apache.spark.api.java.JavaPairRDD;
 import scala.Tuple2;
-import java.util.Comparator;
-import java.io.Serializable;
 
 public class Main {
     public static void main(String[] args) {
@@ -112,48 +110,60 @@ public class Main {
 
 
     public static void Q2(SparkSession spark) {
+        long startTime, endTime;
+
         // Query 1: Find the number of patients that were born in 1999
+        startTime = System.currentTimeMillis();
         Dataset<Row> q21Result = spark.sql(
                 "SELECT COUNT(*) AS count FROM patients WHERE dateOfBirth LIKE '1999-%'"
         );
         long q21 = q21Result.first().getLong(0);
-        System.out.println(">> [q21: " + q21 + "]");
+        endTime = System.currentTimeMillis();
+        System.out.println(">> [q21: " + q21 + "] (SQL) Execution time: " + (endTime - startTime) + " ms");
 
         // Query 2: Find the date in 2024 where the number of diagnoses reached its maximum value
+        startTime = System.currentTimeMillis();
         Dataset<Row> q22Result = spark.sql(
                 "SELECT date, COUNT(*) AS count FROM diagnoses WHERE date LIKE '2024-%' GROUP BY date ORDER BY count DESC LIMIT 1"
         );
         String q22 = q22Result.first().getString(0);
-        System.out.println(">> [q22: " + q22 + "]");
+        endTime = System.currentTimeMillis();
+        System.out.println(">> [q22: " + q22 + "] (SQL) Execution time: " + (endTime - startTime) + " ms");
 
         // Query 3: Find the date in 2024 where the prescription with the maximum number of medicines was administered
+        startTime = System.currentTimeMillis();
         Dataset<Row> q23Result = spark.sql(
-        "WITH prescription_counts AS (" +
-                "SELECT p.prescriptionId, COUNT(*) AS count " +
-                "FROM prescriptions AS p " +
-                "GROUP BY p.prescriptionId ) " +
-                "SELECT d.date " +
-                "FROM diagnoses d " +
-                "JOIN prescription_counts AS pc ON d.prescriptionId = pc.prescriptionId " +
-                "WHERE d.date LIKE '2024-%' " +
-                "ORDER BY count DESC " +
-                "LIMIT 1"
+                "WITH prescription_counts AS (" +
+                        "SELECT p.prescriptionId, COUNT(*) AS count " +
+                        "FROM prescriptions AS p " +
+                        "GROUP BY p.prescriptionId ) " +
+                        "SELECT d.date " +
+                        "FROM diagnoses d " +
+                        "JOIN prescription_counts AS pc ON d.prescriptionId = pc.prescriptionId " +
+                        "WHERE d.date LIKE '2024-%' " +
+                        "ORDER BY count DESC " +
+                        "LIMIT 1"
         );
         String q23 = q23Result.first().getString(0);
-        System.out.println(">> [q23: " + q23 + "]");
-
+        endTime = System.currentTimeMillis();
+        System.out.println(">> [q23: " + q23 + "] (SQL) Execution time: " + (endTime - startTime) + " ms");
     }
 
+
     public static void Q3(Tuple3<JavaRDD<String>, JavaRDD<String>, JavaRDD<String>> rdds) {
+        long startTime, endTime;
 
         // Query 1: Find the number of patients that were born in 1999
+        startTime = System.currentTimeMillis();
         long q31 = rdds._1().filter(line -> {
             String[] parts = line.split(",");
             return parts[3].startsWith("1999");
         }).count();
-        System.out.println(">> [q31: " + q31 + "]");
+        endTime = System.currentTimeMillis();
+        System.out.println(">> [q31: " + q31 + "] (RDD) Execution time: " + (endTime - startTime) + " ms");
 
         // Query 2: Find the date in 2024 where the number of diagnoses reached its maximum value
+        startTime = System.currentTimeMillis();
         JavaPairRDD<String, Integer> diagnosesByDate = rdds._3()
                 .filter(line -> {
                     String[] parts = line.split(",");
@@ -164,12 +174,14 @@ public class Main {
                     return new Tuple2<>(date, 1);
                 })
                 .reduceByKey((a, b) -> a + b);
-        Tuple2<String, Integer> q32Tuple = diagnosesByDate.max((Serializable & Comparator<Tuple2<String, Integer>>)
-                (t1, t2) -> Integer.compare(t1._2(), t2._2()));
-        String q32 = q32Tuple._1();
-        System.out.println(">> [q32: " + q32 + "]");
+        Tuple2<String, Integer> maxDiagnoses = diagnosesByDate.reduce(
+                (t1, t2) -> t1._2 > t2._2 ? t1 : t2);
+        String q32 = maxDiagnoses._1();
+        endTime = System.currentTimeMillis();
+        System.out.println(">> [q32: " + q32 + "] (RDD) Execution time: " + (endTime - startTime) + " ms");
 
         // Query 3: Find the date in 2024 where the prescription with the maximum number of medicines was administered
+        startTime = System.currentTimeMillis();
         JavaPairRDD<Integer, Integer> prescriptionCounts = rdds._2()
                 .mapToPair(line -> {
                     String[] part = line.split(",");
@@ -177,18 +189,20 @@ public class Main {
                     return new Tuple2<>(prescriptionId, 1);
                 })
                 .reduceByKey((a, b) -> a + b);
-        Tuple2<Integer, Integer> maxPrescription = prescriptionCounts.max((Serializable & Comparator<Tuple2<Integer, Integer>>)
-                (t1, t2) -> Integer.compare(t1._2(), t2._2()));
+        Tuple2<Integer, Integer> maxPrescription = prescriptionCounts.reduce(
+                (t1, t2) -> t1._2 > t2._2 ? t1 : t2);
         int maxPrescriptionId = maxPrescription._1();
         String q33 = rdds._3()
-                        .filter(line -> {
-                            String[] parts = line.split(",");
-                            return parts[2].startsWith("2024") && Integer.parseInt(parts[4]) == maxPrescriptionId;
-                        })
-                        .map(line -> line.split(",")[2])
-                        .first();
-        System.out.println(">> [q33: " + q33 + "]");
+                .filter(line -> {
+                    String[] parts = line.split(",");
+                    return parts[2].startsWith("2024") && Integer.parseInt(parts[4]) == maxPrescriptionId;
+                })
+                .map(line -> line.split(",")[2])
+                .first();
+        endTime = System.currentTimeMillis();
+        System.out.println(">> [q33: " + q33 + "] (RDD) Execution time: " + (endTime - startTime) + " ms");
     }
+
 
     public static void Q4(Tuple3<JavaRDD<String>, JavaRDD<String>, JavaRDD<String>> rdds) {
         var q4 = 0;
