@@ -104,11 +104,6 @@ public class Main {
         prescriptionsDF.createOrReplaceTempView("prescriptions");
         diagnosesDF.createOrReplaceTempView("diagnoses");
 
-        //print line count
-//        System.out.println(">> [patientsRDD: " + filteredPatientsRDD.count() + "]");
-//        System.out.println(">> [prescriptionsRDD: " + prescriptionsRDD.count() + "]");
-//        System.out.println(">> [diagnosesRDD: " + diagnosesRDD.count() + "]");
-
         return new Tuple3<>(filteredPatientsRDD, prescriptionsRDD, diagnosesRDD);
     }
 
