@@ -1249,3 +1249,226 @@
 2025-03-21T23:04:07: Time limit: 1800 Seconds
 2025-03-21T23:04:07: Creating runner environment ...
 2025-03-21T23:04:14: Status: Pending
+2025-03-21T23:04:20: Status: Pending
+2025-03-21T23:04:25: Status: Pending
+2025-03-21T23:04:30: Status: Pending
+2025-03-21T23:04:35: Status: Pending
+2025-03-21T23:04:41: Attaching logs
+2025-03-21T23:04:41: Attaching logger to infra: app.kubernetes.io/name=spark-submit
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.619040907Z Using properties file: null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796222077Z Parsed arguments:
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796274781Z   master                  spark://spark-master.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local:7077
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796283348Z   deployMode              null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796287113Z   executorMemory          300g
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796291176Z   executorCores           null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796294855Z   totalExecutorCores      null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796298386Z   propertiesFile          null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796301788Z   driverMemory            30g
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796305281Z   driverCores             null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796308602Z   driverExtraClassPath    null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796312007Z   driverExtraLibraryPath  null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796315913Z   driverExtraJavaOptions  -Dlog4j.configuration="file:/etc/spark/spark-log4j.properties"
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796319829Z   supervise               false
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796323656Z   queue                   null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796327018Z   numExecutors            null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796330386Z   files                   null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796333802Z   pyFiles                 hdfs://hdfs-namenode.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local/app.zip
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796337163Z   archives                null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796340503Z   mainClass               null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796343912Z   primaryResource         hdfs://hdfs-namenode.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local/main.py
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796347647Z   name                    main.py
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796351074Z   childArgs               []
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796354403Z   jars                    null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796357715Z   packages                null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796361026Z   packagesExclusions      null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796364583Z   repositories            null
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796367977Z   verbose                 true
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796371052Z 
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796374858Z Spark properties used, including those specified through
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796378339Z  --conf and those from the properties file null:
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796381705Z   (spark.blockManager.port,4041)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796385025Z   (spark.driver.extraJavaOptions,-Dlog4j.configuration="file:/etc/spark/spark-log4j.properties")
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796388518Z   (spark.driver.host,spark-submit.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796391851Z   (spark.driver.memory,30g)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796395219Z   (spark.driver.port,4042)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796398603Z   (spark.eventLog.compress,true)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796401922Z   (spark.eventLog.dir,hdfs://hdfs-namenode.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local/spark-logs)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796405518Z   (spark.eventLog.enabled,true)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796408818Z   (spark.executor.memory,300g)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796412156Z   (spark.hadoop.fs.defaultFS,hdfs://hdfs-namenode:8020)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796415465Z   (spark.ui.enabled,false)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796418552Z 
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:41.796421882Z     
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:42.440621049Z 25/03/21 23:04:42 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.606786639Z Exception in thread "main" java.io.FileNotFoundException: File hdfs://hdfs-namenode.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local/main.py does not exist.
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.606918625Z 	at org.apache.hadoop.hdfs.DistributedFileSystem.listStatusInternal(DistributedFileSystem.java:1104)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.606991152Z 	at org.apache.hadoop.hdfs.DistributedFileSystem.access$600(DistributedFileSystem.java:147)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607068209Z 	at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1175)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607081762Z 	at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1172)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607105516Z 	at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607124817Z 	at org.apache.hadoop.hdfs.DistributedFileSystem.listStatus(DistributedFileSystem.java:1182)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607157897Z 	at org.apache.spark.util.Utils$.fetchHcfsFile(Utils.scala:851)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607183937Z 	at org.apache.spark.util.Utils$.doFetchFile(Utils.scala:820)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607245846Z 	at org.apache.spark.util.DependencyUtils$.downloadFile(DependencyUtils.scala:264)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607269425Z 	at org.apache.spark.deploy.SparkSubmit.$anonfun$prepareSubmitEnvironment$8(SparkSubmit.scala:391)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607315228Z 	at scala.Option.map(Option.scala:230)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607356297Z 	at org.apache.spark.deploy.SparkSubmit.prepareSubmitEnvironment(SparkSubmit.scala:391)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607392650Z 	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:923)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607434485Z 	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:191)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607467702Z 	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:214)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607504135Z 	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:90)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607542597Z 	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1072)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607580731Z 	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1081)
+[pod/spark-submit/spark-submit] 2025-03-21T23:04:43.607618979Z 	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+2025-03-21T23:04:51: Status: Failed
+2025-03-21T23:04:51: Begin downloading spark logs
+2025-03-21T23:04:51: Collecting stats
+2025-03-21T23:04:53: Performing cleanup
+2025-03-21T23:04:54: Awaiting attached log termination
+[pod/hdfs-namenode-0/hdfs-namenode] 2025-03-21T23:05:01.478527665Z 2025-03-21 23:05:01,477 ERROR namenode.NameNode: RECEIVED SIGNAL 15: SIGTERM
+[pod/hdfs-namenode-0/hdfs-namenode] 2025-03-21T23:05:01.483247958Z 2025-03-21 23:05:01,482 INFO namenode.NameNode: SHUTDOWN_MSG: 
+[pod/hdfs-namenode-0/hdfs-namenode] 2025-03-21T23:05:01.483298932Z /************************************************************
+[pod/hdfs-namenode-0/hdfs-namenode] 2025-03-21T23:05:01.483314904Z SHUTDOWN_MSG: Shutting down NameNode at hdfs-namenode-0/192.168.139.246
+[pod/hdfs-namenode-0/hdfs-namenode] 2025-03-21T23:05:01.483327113Z ************************************************************/
+[pod/worker-0/datanode] 2025-03-21T23:05:01.744186615Z 2025-03-21 23:05:01,743 ERROR datanode.DataNode: RECEIVED SIGNAL 15: SIGTERM
+[pod/worker-0/datanode] 2025-03-21T23:05:01.758735583Z 2025-03-21 23:05:01,758 INFO datanode.DataNode: SHUTDOWN_MSG: 
+[pod/worker-0/datanode] 2025-03-21T23:05:01.758763870Z /************************************************************
+[pod/worker-0/datanode] 2025-03-21T23:05:01.758772304Z SHUTDOWN_MSG: Shutting down DataNode at worker-0/192.168.84.177
+[pod/worker-0/datanode] 2025-03-21T23:05:01.758778431Z ************************************************************/
+[pod/worker-1/datanode] 2025-03-21T23:05:01.802530380Z 2025-03-21 23:05:01,802 ERROR datanode.DataNode: RECEIVED SIGNAL 15: SIGTERM
+[pod/worker-1/datanode] 2025-03-21T23:05:01.813742691Z 2025-03-21 23:05:01,813 INFO datanode.DataNode: SHUTDOWN_MSG: 
+[pod/worker-1/datanode] 2025-03-21T23:05:01.813806429Z /************************************************************
+[pod/worker-1/datanode] 2025-03-21T23:05:01.813825512Z SHUTDOWN_MSG: Shutting down DataNode at worker-1/192.168.172.208
+[pod/worker-1/datanode] 2025-03-21T23:05:01.813837922Z ************************************************************/
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.552288826Z 25/03/21 23:05:31 INFO Worker: spark-master.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local:7077 Disassociated !
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.551863453Z 25/03/21 23:05:31 INFO Worker: spark-master.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local:7077 Disassociated !
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.553455199Z 25/03/21 23:05:31 ERROR Worker: Connection to master failed! Waiting for master to reconnect...
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.554877631Z 25/03/21 23:05:31 INFO Worker: spark-master-0.spark-master.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local:7077 Disassociated !
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.555110630Z 25/03/21 23:05:31 INFO Worker: Connecting to master spark-master.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local:7077...
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.555165216Z 25/03/21 23:05:31 ERROR Worker: Connection to master failed! Waiting for master to reconnect...
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.556779854Z 25/03/21 23:05:31 INFO Worker: Not spawning another attempt to register with the master, since there is an attempt scheduled already.
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.552915125Z 25/03/21 23:05:31 ERROR Worker: Connection to master failed! Waiting for master to reconnect...
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.554063322Z 25/03/21 23:05:31 INFO Worker: spark-master-0.spark-master.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local:7077 Disassociated !
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.554257637Z 25/03/21 23:05:31 ERROR Worker: Connection to master failed! Waiting for master to reconnect...
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.554334403Z 25/03/21 23:05:31 INFO Worker: Connecting to master spark-master.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local:7077...
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.555320142Z 25/03/21 23:05:31 INFO Worker: Not spawning another attempt to register with the master, since there is an attempt scheduled already.
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.563172737Z 25/03/21 23:05:31 INFO TransportClientFactory: Found inactive connection to spark-master.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local:7077, creating a new one.
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.562950974Z 25/03/21 23:05:31 INFO TransportClientFactory: Found inactive connection to spark-master.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local:7077, creating a new one.
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574301729Z 25/03/21 23:05:31 WARN Worker: Failed to connect to master spark-master.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local:7077
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574351416Z org.apache.spark.SparkException: Exception thrown in awaitResult: 
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574365340Z 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:301)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574373583Z 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574382194Z 	at org.apache.spark.rpc.RpcEnv.setupEndpointRefByURI(RpcEnv.scala:102)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574390378Z 	at org.apache.spark.rpc.RpcEnv.setupEndpointRef(RpcEnv.scala:110)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574398240Z 	at org.apache.spark.deploy.worker.Worker$$anon$1.run(Worker.scala:313)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574408608Z 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574417256Z 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574397916Z 25/03/21 23:05:31 WARN Worker: Failed to connect to master spark-master.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local:7077
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574446598Z org.apache.spark.SparkException: Exception thrown in awaitResult: 
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574425119Z 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574459225Z 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:301)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574435427Z 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574467646Z 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574475866Z 	at org.apache.spark.rpc.RpcEnv.setupEndpointRefByURI(RpcEnv.scala:102)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574444148Z 	at java.base/java.lang.Thread.run(Thread.java:829)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574484440Z 	at org.apache.spark.rpc.RpcEnv.setupEndpointRef(RpcEnv.scala:110)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574452275Z Caused by: java.io.IOException: Failed to connect to spark-master.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local:7077
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574492803Z 	at org.apache.spark.deploy.worker.Worker$$anon$1.run(Worker.scala:313)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574527812Z 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574461590Z 	at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:298)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574545969Z 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574554988Z 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574470071Z 	at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:218)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574478973Z 	at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:230)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574565075Z 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574487523Z 	at org.apache.spark.rpc.netty.NettyRpcEnv.createClient(NettyRpcEnv.scala:204)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574496525Z 	at org.apache.spark.rpc.netty.Outbox$$anon$1.call(Outbox.scala:202)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574574244Z 	at java.base/java.lang.Thread.run(Thread.java:829)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574583206Z Caused by: java.io.IOException: Failed to connect to spark-master.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local:7077
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574596208Z 	at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:298)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574504575Z 	at org.apache.spark.rpc.netty.Outbox$$anon$1.call(Outbox.scala:198)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574606917Z 	at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:218)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574615324Z 	at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:230)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574629826Z 	at org.apache.spark.rpc.netty.NettyRpcEnv.createClient(NettyRpcEnv.scala:204)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574512367Z 	... 4 more
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574638290Z 	at org.apache.spark.rpc.netty.Outbox$$anon$1.call(Outbox.scala:202)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574646727Z 	at org.apache.spark.rpc.netty.Outbox$$anon$1.call(Outbox.scala:198)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574520423Z Caused by: java.net.UnknownHostException: spark-master.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574654750Z 	... 4 more
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574527982Z 	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:797)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574535557Z 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574543429Z 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1386)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574551088Z 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1307)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574586337Z 	at java.base/java.net.InetAddress.getByName(InetAddress.java:1257)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574665977Z Caused by: java.net.UnknownHostException: spark-master.submission-b88ebfea875443329ffa71394f4e85fa.svc.cluster.local
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574674290Z 	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:797)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574682123Z 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574689965Z 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1386)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574596461Z 	at io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:156)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574697670Z 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1307)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574604267Z 	at io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:153)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574612554Z 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574732178Z 	at java.base/java.net.InetAddress.getByName(InetAddress.java:1257)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574620293Z 	at io.netty.util.internal.SocketUtils.addressByName(SocketUtils.java:153)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574741387Z 	at io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:156)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574749449Z 	at io.netty.util.internal.SocketUtils$8.run(SocketUtils.java:153)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574757679Z 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574629020Z 	at io.netty.resolver.DefaultNameResolver.doResolve(DefaultNameResolver.java:41)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574765542Z 	at io.netty.util.internal.SocketUtils.addressByName(SocketUtils.java:153)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574636953Z 	at io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:61)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574773307Z 	at io.netty.resolver.DefaultNameResolver.doResolve(DefaultNameResolver.java:41)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574661750Z 	at io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:53)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574672155Z 	at io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:55)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574780933Z 	at io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:61)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574788618Z 	at io.netty.resolver.SimpleNameResolver.resolve(SimpleNameResolver.java:53)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574689581Z 	at io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:31)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574698650Z 	at io.netty.resolver.AbstractAddressResolver.resolve(AbstractAddressResolver.java:106)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574796544Z 	at io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:55)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574706816Z 	at io.netty.bootstrap.Bootstrap.doResolveAndConnect0(Bootstrap.java:206)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574714572Z 	at io.netty.bootstrap.Bootstrap.access$000(Bootstrap.java:46)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574804192Z 	at io.netty.resolver.InetSocketAddressResolver.doResolve(InetSocketAddressResolver.java:31)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574722397Z 	at io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:180)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574730200Z 	at io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:166)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574817040Z 	at io.netty.resolver.AbstractAddressResolver.resolve(AbstractAddressResolver.java:106)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574825497Z 	at io.netty.bootstrap.Bootstrap.doResolveAndConnect0(Bootstrap.java:206)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574737845Z 	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:578)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574745784Z 	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:552)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574833270Z 	at io.netty.bootstrap.Bootstrap.access$000(Bootstrap.java:46)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574841112Z 	at io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:180)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574849449Z 	at io.netty.bootstrap.Bootstrap$1.operationComplete(Bootstrap.java:166)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574753309Z 	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:491)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574856934Z 	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:578)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574762902Z 	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:616)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574771246Z 	at io.netty.util.concurrent.DefaultPromise.setSuccess0(DefaultPromise.java:605)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574778781Z 	at io.netty.util.concurrent.DefaultPromise.trySuccess(DefaultPromise.java:104)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574864519Z 	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:552)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574872114Z 	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:491)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574879632Z 	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:616)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574787044Z 	at io.netty.channel.DefaultChannelPromise.trySuccess(DefaultChannelPromise.java:84)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574794763Z 	at io.netty.channel.AbstractChannel$AbstractUnsafe.safeSetSuccess(AbstractChannel.java:990)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574802201Z 	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:516)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574887515Z 	at io.netty.util.concurrent.DefaultPromise.setSuccess0(DefaultPromise.java:605)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574895029Z 	at io.netty.util.concurrent.DefaultPromise.trySuccess(DefaultPromise.java:104)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574809649Z 	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:429)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574840344Z 	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:486)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574850348Z 	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574902812Z 	at io.netty.channel.DefaultChannelPromise.trySuccess(DefaultChannelPromise.java:84)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574910694Z 	at io.netty.channel.AbstractChannel$AbstractUnsafe.safeSetSuccess(AbstractChannel.java:990)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574918146Z 	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:516)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574925824Z 	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:429)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574858491Z 	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574866223Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:503)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574873922Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574881544Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574955145Z 	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:486)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574928631Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+[pod/worker-1/spark-worker] 2025-03-21T23:05:31.574938599Z 	... 1 more
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574964993Z 	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574973844Z 	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574981573Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:503)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574989422Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.574997097Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.575007713Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+[pod/worker-0/spark-worker] 2025-03-21T23:05:31.575015645Z 	... 1 more
+2025-03-21T23:05:33: Done
+2025-03-21T23:05:33: Bye
